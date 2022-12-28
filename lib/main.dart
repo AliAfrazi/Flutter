@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:course_example/all_offer_items.dart';
 import 'package:persian_number_utility/persian_number_utility.dart';
 
 void main() => runApp(const Start());
@@ -37,7 +36,7 @@ class _HomeState extends State<Home> {
           children: [
             Container(
               height: 250,
-              color: Colors.blue,
+              color: Colors.green,
             ),
             SizedBox(
               height: 250,
@@ -66,7 +65,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             Container(
-              color: Colors.green,
+              color: Colors.white,
               child: Column(
                 children: [
                   Row(
@@ -146,7 +145,7 @@ class _HomeState extends State<Home> {
           ),
           InkWell(
             onTap: () {
-              log('Click');
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const AllItems()));
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -159,7 +158,8 @@ class _HomeState extends State<Home> {
                 )
               ],
             ),
-          )
+          ),
+          const GridPaper()
         ],
       ),
     );
@@ -238,12 +238,9 @@ class _HomeState extends State<Home> {
   Widget gridView() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-
-        Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
+        Row(mainAxisAlignment: MainAxisAlignment.spaceAround, crossAxisAlignment: CrossAxisAlignment.center, children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -257,9 +254,12 @@ class _HomeState extends State<Home> {
                   height: 70,
                 ),
               ),
-              const Text(
-                'دیجی کالا مهر',
-                style: TextStyle(fontSize: 12, fontFamily: 'Light'),
+              const Padding(
+                padding: EdgeInsets.only(top: 5),
+                child: Text(
+                  'دیجی کالا مهر',
+                  style: TextStyle(fontSize: 12, fontFamily: 'Light'),
+                ),
               )
             ],
           ),
@@ -276,9 +276,12 @@ class _HomeState extends State<Home> {
                   height: 70,
                 ),
               ),
-              const Text(
-                'خرید اقساطی',
-                style: TextStyle(fontSize: 12, fontFamily: 'Light'),
+              const Padding(
+                padding: EdgeInsets.only(top: 5),
+                child: Text(
+                  'خرید اقساطی',
+                  style: TextStyle(fontSize: 12, fontFamily: 'Light'),
+                ),
               ),
             ],
           ),
@@ -295,9 +298,12 @@ class _HomeState extends State<Home> {
                   height: 70,
                 ),
               ),
-              const Text(
-                'حراج استایل',
-                style: TextStyle(fontSize: 12, fontFamily: 'Light'),
+              const Padding(
+                padding: EdgeInsets.only(top: 5),
+                child: Text(
+                  'حراج استایل',
+                  style: TextStyle(fontSize: 12, fontFamily: 'Light'),
+                ),
               )
             ],
           ),
@@ -314,95 +320,110 @@ class _HomeState extends State<Home> {
                   height: 70,
                 ),
               ),
-              const Text(
-                'دیجی کالا جت',
-                style: TextStyle(fontSize: 12, fontFamily: 'Light'),
+              const Padding(
+                padding: EdgeInsets.only(top: 5),
+                child: Text(
+                  'دیجی کالا جت',
+                  style: TextStyle(fontSize: 12, fontFamily: 'Light'),
+                ),
               )
             ],
           )
         ]),
-        const SizedBox(height: 10),
-        Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+        Row(mainAxisAlignment: MainAxisAlignment.spaceAround, crossAxisAlignment: CrossAxisAlignment.center, children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    clipBehavior: Clip.antiAlias,
-                    child: Container(
-                      color: Colors.red,
-                      width: 70,
-                      height: 70,
-                    ),
-                  ),
-                  const Text(
-                    'دیجی کالا مهر',
-                    style: TextStyle(fontSize: 12, fontFamily: 'Light'),
-                  )
-                ],
+              ClipRRect(
+                borderRadius: BorderRadius.circular(50),
+                clipBehavior: Clip.antiAlias,
+                child: Container(
+                  color: Colors.black12,
+                  width: 70,
+                  height: 70,
+                  child: const Icon(Icons.more_horiz, color: Colors.black26),
+                ),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    clipBehavior: Clip.antiAlias,
-                    child: Container(
-                      color: Colors.blue,
-                      width: 70,
-                      height: 70,
-                    ),
-                  ),
-                  const Text(
-                    'خرید اقساطی',
-                    style: TextStyle(fontSize: 12, fontFamily: 'Light'),
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    clipBehavior: Clip.antiAlias,
-                    child: Container(
-                      color: Colors.black,
-                      width: 70,
-                      height: 70,
-                    ),
-                  ),
-                  const Text(
-                    'حراج استایل',
-                    style: TextStyle(fontSize: 12, fontFamily: 'Light'),
-                  )
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    clipBehavior: Clip.antiAlias,
-                    child: Container(
-                      color: Colors.deepOrange,
-                      width: 70,
-                      height: 70,
-                    ),
-                  ),
-                  const Text(
-                    'دیجی کالا جت',
-                    style: TextStyle(fontSize: 12, fontFamily: 'Light'),
-                  )
-                ],
+              const Padding(
+                padding: EdgeInsets.only(top: 5),
+                child: Text(
+                  'بیشتر',
+                  style: TextStyle(fontSize: 12, fontFamily: 'Light'),
+                ),
               )
-            ])
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(50),
+                clipBehavior: Clip.antiAlias,
+                child: Container(
+                  color: Colors.purple,
+                  width: 70,
+                  height: 70,
+                  child: const Icon(Icons.add, size: 50, color: Colors.white),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 5),
+                child: Text(
+                  'دیجی پلاس',
+                  style: TextStyle(fontSize: 12, fontFamily: 'Light'),
+                ),
+              ),
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(50),
+                clipBehavior: Clip.antiAlias,
+                child: Container(
+                  color: Colors.teal,
+                  width: 70,
+                  height: 70,
+                  child: const Icon(Icons.settings, size: 50, color: Colors.white),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 5),
+                child: Text(
+                  'چرخ و بخت',
+                  style: TextStyle(fontSize: 12, fontFamily: 'Light'),
+                ),
+              )
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(50),
+                clipBehavior: Clip.antiAlias,
+                child: Container(
+                  color: Colors.lightGreen,
+                  width: 70,
+                  height: 70,
+                  child: const Icon(Icons.breakfast_dining, size: 40, color: Colors.white),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 5),
+                child: Text(
+                  'خرید سر ماه',
+                  style: TextStyle(fontSize: 12, fontFamily: 'Light'),
+                ),
+              )
+            ],
+          )
+        ])
       ],
     );
   }
